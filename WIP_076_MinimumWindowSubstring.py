@@ -4,29 +4,10 @@ def minWindow(self, s, t):
     :type t: str
     :rtype: str
     """
-    
-    # two pointers
-    # output = running longest valid substring where t in s 
-    # while t in s:
-    # see if the current window is smaller than the local min window
-    # we will shift the the left pointer (increment it)
-    # if t not in s:
-    # we will shift the right pointer (increment it)
+    if t == "": return ""
 
-    minWindow = s
-    l = 0
+    countT, window = {}, {}
 
-    for r in range(1, len(s)):
-        # increment r if t not in s
-        while t in s[l:r]:
-            if len(s[l:r]) < len(minWindow):
-                minWindow = s[l:r]
-        
-    return minWindow
-
-s = 'ABC'
-t = 'ASFKASKFABDCL'
-print(s in t)
-    
-
-    # wip
+    for c in t:
+        countT[c] = 1 + countT.get(c)
+    have, need = 0, len(countT)
