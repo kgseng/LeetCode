@@ -30,7 +30,14 @@ def threeSumSmaller(nums, target):
 
 
 
-nums = [-2,0,1,3]
-target = 2
+nums = [-1, 4, 2, 1, 3]
+target = 5
 
 print(threeSumSmaller(nums, target))
+
+# Space Complexity
+# O(n) for nums.sort() - no in place sorting
+# Time Complexity
+# num.sort -> n log n
+# determining valid triplets -> n^2
+# total is n log n + n^2 -> n^2
