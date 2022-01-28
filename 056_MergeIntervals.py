@@ -7,10 +7,11 @@ def merge(intervals):
     :rtype: List[List[int]]
     """
     intervals = sorted(intervals)
-    
     ans = []
+
     start = intervals[0][0]
     end = intervals[0][1]
+    
     for i in intervals:
         if i[0] > end:
             ans.append([start, end])
