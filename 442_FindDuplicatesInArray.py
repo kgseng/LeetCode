@@ -1,10 +1,11 @@
-
-def findDisappearedNumbers(nums):
+def findDuplicates(nums):
     """
     :type nums: List[int]
     :rtype: List[int]
     """
-    
+    # 1) Cyclic Sort nums in place
+    # 2) Iterate through nums appending elements that do not match their index (i+1) for [1,n]
+
     i, n = 0, len(nums)
     res = []
 
@@ -16,9 +17,12 @@ def findDisappearedNumbers(nums):
             i += 1
     
     for i in range(n):
-        if i+1 != nums[i]:
-            res.append(i+1)
+        if nums[i] != i+1:
+            res.append(nums[i])
+    res.sort()
     return res
+    
 
 nums = [4,3,2,7,8,2,3,1]
-print(findDisappearedNumbers(nums))
+# [2,3]
+print(findDuplicates(nums))

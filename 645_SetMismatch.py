@@ -1,12 +1,14 @@
-
-def findDisappearedNumbers(nums):
+def findErrorNums(nums):
     """
     :type nums: List[int]
     :rtype: List[int]
     """
-    
-    i, n = 0, len(nums)
+
+    # 1) Cyclic Sort, [1,n]
+    # 2) Find the mismatch and return the element, index of mismatch
+
     res = []
+    i, n = 0 , len(nums)
 
     while i < n:
         j = nums[i] - 1
@@ -16,9 +18,13 @@ def findDisappearedNumbers(nums):
             i += 1
     
     for i in range(n):
-        if i+1 != nums[i]:
-            res.append(i+1)
+        if nums[i] != i + 1:
+            return [nums[i], i+1]
     return res
 
-nums = [4,3,2,7,8,2,3,1]
-print(findDisappearedNumbers(nums))
+
+
+
+nums = [1,2,2,4]
+# [2,3]
+print(findErrorNums(nums))
